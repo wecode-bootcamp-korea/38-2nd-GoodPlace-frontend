@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams, searchParams } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import variables from "../../styles/variables";
 import theme from "../../styles/theme";
+import LoginModal from "../Modal/LoginModal";
+import { LoginContext } from "../../pages/context/LoginContext";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [trySearch, setTrySearch] = useState(false);
+  const {
+    isLoginModalOpen,
+    setIsLoginModalOpen,
+    switchAnimation,
+    setSwitchAnimation,
+    navListName,
+  } = useContext(LoginContext);
 
   const searchBtnClicked = () => {
     setTrySearch(true);
@@ -18,6 +28,11 @@ const Nav = () => {
     }, 500);
   };
 
+  const loginModalOpen = e => {
+    setSwitchAnimation(true);
+    setIsLoginModalOpen(true);
+  };
+
   useEffect(() => {
     const scrolling = () => {
       let top = window.scrollY;
@@ -25,7 +40,7 @@ const Nav = () => {
     };
     window.addEventListener("scroll", scrolling);
 
-    return () => window.removeEventListener(scrolling);
+    return () => window.removeEventListener("scroll", scrolling);
   }, []);
 
   return (
@@ -47,12 +62,17 @@ const Nav = () => {
             />
           ) : (
             <>
-              <S.NavContentItem>내주변</S.NavContentItem>
+              <S.NavContentItem>
+                {navListName ? "내주변" : "지역별"}
+              </S.NavContentItem>
               <S.NavContentItem>예약내역</S.NavContentItem>
               <S.NavContentItem>더보기</S.NavContentItem>
-              <S.NavContentItem>로그인</S.NavContentItem>
+              <S.NavContentItem onMouseDown={loginModalOpen}>
+                로그인
+              </S.NavContentItem>
             </>
           )}
+          <LoginModal />
         </S.NavContent>
       </S.NavWrap>
     </S.NavBar>
@@ -64,6 +84,10 @@ const S = {
     position: fixed;
     ${variables.flex("center", "center", "center")};
     width: 100%;
+    z-index: 9999;
+    transition: all 0.2s;
+    box-shadow: ${({ isScrolled }) =>
+      isScrolled ? "0px 2px 3px 0px rgb(0 0 0 / 10%)" : ""};
     background-color: ${({ isScrolled }) =>
       isScrolled ? "white" : "transparent"};
     li {
@@ -110,6 +134,7 @@ const S = {
     border: none;
     color: red;
     transition: width 0.5s;
+    background-color: none;
     &:focus {
       width: 794px;
       opacity: 1;
