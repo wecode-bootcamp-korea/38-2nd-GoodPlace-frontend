@@ -25,7 +25,9 @@ const Modal = ({ content, setIsModalOpen, confirm }) => {
           <p>{MODAL_CONTENT[content]}</p>
         </S.Text>
         <S.ButtonWrapper>
-          <S.ConfirmButton onClick={confirm}>확인</S.ConfirmButton>
+          <S.ConfirmButton onClick={confirm || closeModal}>
+            확인
+          </S.ConfirmButton>
           <S.CancelButton onClick={closeModal}>취소</S.CancelButton>
         </S.ButtonWrapper>
       </S.Content>
@@ -37,6 +39,7 @@ const MODAL_CONTENT = {
   payment: "결제하시겠습니까?",
   signUp: "가입하시겠습니까?",
   needLogin: "로그인이 필요합니다.",
+  needDate: "날짜를 선택해주세요",
 };
 
 const animation = {
@@ -76,6 +79,7 @@ const S = {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.4);
     animation: ${({ bgAnimation }) => bgAnimation} 0.3s;
+    z-index: 100000000;
   `,
   Content: styled.div`
     ${variables.flex("space-between", "center", "column")};
