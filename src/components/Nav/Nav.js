@@ -59,6 +59,7 @@ const Nav = () => {
               autoFocus
               placeholder="지역, 숙소명"
               onBlur={closeSearch}
+              isScrolled={isScrolled}
             />
           ) : (
             <>
@@ -88,8 +89,7 @@ const S = {
     transition: all 0.2s;
     box-shadow: ${({ isScrolled }) =>
       isScrolled ? "0px 2px 3px 0px rgb(0 0 0 / 10%)" : ""};
-    background-color: ${({ isScrolled }) =>
-      isScrolled ? "white" : "transparent"};
+    background-color: ${({ isScrolled }) => (isScrolled ? "white" : "")};
     li {
       color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
     }
@@ -121,12 +121,14 @@ const S = {
   `,
   NavContentItem: styled.li`
     margin-left: 30px;
+    cursor: pointer;
   `,
   SearchBtn: styled.button`
     ${variables.flex("space-between", "center", "center")};
     border: none;
     background-color: transparent;
     font-size: 25px;
+    cursor: pointer;
   `,
   SearchBar: styled.input`
     opacity: 0;
@@ -134,7 +136,8 @@ const S = {
     border: none;
     color: red;
     transition: width 0.5s;
-    background-color: none;
+    background-color: ${({ isScrolled, theme }) =>
+      isScrolled ? "none" : theme.brandColor};
     &:focus {
       width: 794px;
       opacity: 1;
