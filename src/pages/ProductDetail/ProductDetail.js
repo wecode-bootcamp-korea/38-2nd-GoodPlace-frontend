@@ -1,7 +1,8 @@
 import React from "react";
+import ReviewComments from "./MenuTab/ReviewTab/ReviewComments";
 
 const ProductDetail = () => {
-  return <div>상세페이지 입니다.</div>;
+  return <ReviewComments></ReviewComments>;
 };
 
 export default ProductDetail;
