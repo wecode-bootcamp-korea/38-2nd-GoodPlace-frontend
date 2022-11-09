@@ -5,21 +5,26 @@ import variables from "../../../../styles/variables";
 function StarRate({ starRate }) {
   const STAR_IDX_ARR = ["first", "second", "third", "fourth", "last"];
   const [ratesResArr, setRatesResArr] = useState([0, 0, 0, 0, 0]);
+
   const calcStarRates = () => {
     let tempStarRatesArr = [0, 0, 0, 0, 0];
     let starVerScore = (starRate * 700) / 100;
     let index = 0;
+
     while (starVerScore > 14) {
       tempStarRatesArr[index] = 14;
       index += 1;
       starVerScore -= 14;
     }
+
     tempStarRatesArr[index] = starVerScore;
     return tempStarRatesArr;
   };
+
   useEffect(() => {
     setRatesResArr(calcStarRates);
   }, []);
+
   return (
     <S.StarRateWrap>
       {STAR_IDX_ARR.map((star, index) => {
