@@ -6,8 +6,9 @@ import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
 import LoginStore from "./pages/context/LoginContext";
 import KakaoLogin from "./pages/SignIn/KakaoLogin";
-import ProductList from "./pages/ProductList/ProductList";
-import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import ProductList from "./pages/ProductList/ProductList";::
+import BookList from "./pages/BookList/BookList";
+import BookListDetail from "./pages/BookList/BookListDetail";
 import Book from "./pages/Book/Book";
 
 const Router = () => {
@@ -20,7 +21,8 @@ const Router = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/kakaologin" element={<KakaoLogin />} />
-          <Route path="/detail/:id" element={<ProductDetail />} />
+          <Route path="/booklist" element={<BookList />} />
+          <Route path="/booklistdetail/:id" element={<BookListDetail />} />
           <Route path="/Book" element={<Book />} />
         </Routes>
         <Footer />
