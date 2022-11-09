@@ -1,15 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useParams, searchParams } from "react-router-dom";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import variables from "../../styles/variables";
 import theme from "../../styles/theme";
 import LoginModal from "../Modal/LoginModal";
 import { LoginContext } from "../../pages/context/LoginContext";
+import SearchModal from "../Modal/SearchModal";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [trySearch, setTrySearch] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [searchData, setSearchData] = useState([]);
   const {
     isLoginModalOpen,
     setIsLoginModalOpen,
@@ -23,14 +25,21 @@ const Nav = () => {
   };
 
   const closeSearch = () => {
+    setSearchData([]);
     setTimeout(() => {
       setTrySearch(false);
+      setInputValue("");
     }, 500);
   };
 
   const loginModalOpen = e => {
     setSwitchAnimation(true);
     setIsLoginModalOpen(true);
+  };
+
+  const inputChange = event => {
+    fetchDelay(event.target.value);
+    setInputValue(event.target.value);
   };
 
   useEffect(() => {
@@ -42,6 +51,27 @@ const Nav = () => {
 
     return () => window.removeEventListener("scroll", scrolling);
   }, []);
+
+  const debounceFunction = (callback, delay) => {
+    let timer;
+    return (...args) => {
+      // 실행한 함수(setTimeout())를 취소
+      clearTimeout(timer);
+      // delay가 지나면 callback 함수를 실행
+      timer = setTimeout(() => callback(...args), delay);
+    };
+  };
+
+  const fetchDelay = useCallback(
+    debounceFunction(value => searchFetch(value), 200),
+    []
+  );
+
+  const searchFetch = value => {
+    fetch(`http://10.58.52.63:3000/product?search=${value}`)
+      .then(res => res.json())
+      .then(data => setSearchData(data.productInfo));
+  };
 
   return (
     <S.NavBar isScrolled={isScrolled}>
@@ -60,6 +90,8 @@ const Nav = () => {
               placeholder="지역, 숙소명"
               onBlur={closeSearch}
               isScrolled={isScrolled}
+              onChange={inputChange}
+              value={inputValue}
             />
           ) : (
             <>
@@ -72,6 +104,9 @@ const Nav = () => {
                 로그인
               </S.NavContentItem>
             </>
+          )}
+          {trySearch && (
+            <SearchModal setTrySearch={setTrySearch} searchData={searchData} />
           )}
           <LoginModal />
         </S.NavContent>
@@ -136,6 +171,7 @@ const S = {
     border: none;
     color: red;
     transition: width 0.5s;
+    font-size: 20px;
     background-color: ${({ isScrolled, theme }) =>
       isScrolled ? "none" : theme.brandColor};
     &:focus {
