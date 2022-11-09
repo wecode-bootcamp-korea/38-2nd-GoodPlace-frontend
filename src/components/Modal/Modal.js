@@ -38,8 +38,10 @@ const Modal = ({ content, setIsModalOpen, confirm }) => {
 const MODAL_CONTENT = {
   payment: "결제하시겠습니까?",
   signUp: "가입하시겠습니까?",
-  needLogin: "로그인이 필요합니다.",
+  NEED_ACCESS_TOKEN: "로그인이 필요합니다.",
   needDate: "날짜를 선택해주세요",
+  YOU_CAN_NOT_WRITE_REVIEW: "리뷰 권한이 없습니다.",
+  reviewPosted: "리뷰가 등록되었습니다.",
 };
 
 const animation = {

@@ -11,7 +11,6 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Book from "./pages/Book/Book";
 
 const Router = () => {
-  // const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   return (
     <BrowserRouter>
       <LoginStore>
