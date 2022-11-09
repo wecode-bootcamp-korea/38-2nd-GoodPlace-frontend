@@ -1,0 +1,50 @@
+.mySwiper3 {
+  display: block;
+  width: 880px;
+  height: 664px;
+  margin-top: 50px;
+  position: relative;
+  right: 350px;
+  border: 70px solid rgba(0, 0, 0, 0.1);
+}
+
+.mySwiper3 .swiper-button-next::after {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 8px;
+  text-align: center;
+  vertical-align: middle;
+  width: 86px;
+  height: 86px;
+  font-size: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+.mySwiper3 .swiper-button-prev::after {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -8px;
+  text-align: center;
+  vertical-align: middle;
+  width: 86px;
+  height: 86px;
+  font-size: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+.mySwiper3 .swiper-pagination {
+  color: white;
+  margin-left: 335px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  width: 70px;
+  height: 40px;
+  text-align: center;
+  line-height: 2.5;
+}

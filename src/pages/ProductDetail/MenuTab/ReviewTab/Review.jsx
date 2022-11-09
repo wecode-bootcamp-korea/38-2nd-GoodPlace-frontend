@@ -33,13 +33,15 @@ const Review = ({ starRate }) => {
     getReviews();
   }, []);
 
+  console.log(API);
+
   return (
     <S.Review>
       <S.Header>
         <S.HeaderTitle>{ratingMessage(starRate)}</S.HeaderTitle>
         <S.StarRateWrap>
           <StarRate starRate={starRate} />
-          <S.Rate>{starRate}</S.Rate>
+          <S.Rate>{Math.round(starRate * 10) / 10}</S.Rate>
         </S.StarRateWrap>
         <S.ReviewCountWrap>
           <S.ReviewCount>전체 리뷰 {reviews.length}</S.ReviewCount>
