@@ -25,9 +25,8 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#">사업자 정보확인</a>
+                <S.DivideBar> | </S.DivideBar>
               </li>
-            </S.FooterLinkFirstLine>
-            <S.FooterLinkSecondLine>
               <li>
                 <a href="#">어떤데. 마케팅센터</a>{" "}
                 <S.DivideBar> | </S.DivideBar>
@@ -45,7 +44,7 @@ const Footer = () => {
               <li>
                 <a href="#">콘텐츠산업진흥법에의한 표시</a>
               </li>
-            </S.FooterLinkSecondLine>
+            </S.FooterLinkFirstLine>
           </ul>
         </S.FooterLink>
 
@@ -110,20 +109,13 @@ const S = {
   FooterLink: styled.div`
     display: flex;
     text-align: center;
-    height: 41px;
     a {
       text-decoration: none;
       color: #989898;
     }
   `,
-  FooterLinkFirstLine: styled.a`
+  FooterLinkFirstLine: styled.div`
     display: flex;
-    margin-bottom: 5px;
-    text-decoration: none;
-  `,
-  FooterLinkSecondLine: styled.a`
-    display: flex;
-    margin-top: 5px;
     text-decoration: none;
   `,
   DivideBar: styled.span`
