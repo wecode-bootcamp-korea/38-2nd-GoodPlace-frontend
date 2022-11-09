@@ -8,6 +8,7 @@ import LoginStore from "./pages/context/LoginContext";
 import KakaoLogin from "./pages/SignIn/KakaoLogin";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import Book from "./pages/Book/Book";
 
 const Router = () => {
   // const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -21,6 +22,7 @@ const Router = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/kakaologin" element={<KakaoLogin />} />
           <Route path="/detail/:id" element={<ProductDetail />} />
+          <Route path="/Book" element={<Book />} />
         </Routes>
         <Footer />
       </LoginStore>
