@@ -4,6 +4,7 @@ import variables from "../../../../styles/variables";
 import theme from "../../../../styles/theme";
 import RoomItem from "./RoomItem";
 import { useParams } from "react-router-dom";
+import API from '../../../../config';
 
 const RoomList = props => {
   const { checkIn, checkOut, productName, dateDiff } = props;
@@ -15,7 +16,7 @@ const RoomList = props => {
   // 룸 썸네일 사진 / 가격받아오는 fetch
   useEffect(() => {
     fetch(
-      `http://10.58.52.64:3000/product/roominfo?productId=${params.id}&checkIn=${checkIn}&checkOut=${checkOut}`
+      `${API.list}/roominfo?productId=${params.id}&checkIn=${checkIn}&checkOut=${checkOut}`
     )
       .then(res => res.json())
       .then(data => setRoomData(data.roomInfo));

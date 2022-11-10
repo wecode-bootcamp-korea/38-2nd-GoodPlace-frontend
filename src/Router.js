@@ -10,6 +10,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import BookList from "./pages/BookList/BookList";
 import BookListDetail from "./pages/BookList/BookListDetail";
 import Book from "./pages/Book/Book";
+import Main from "./pages/Main/Main";
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
       <LoginStore>
         <Nav />
         <Routes>
+          <Route path="/" element={<Main />} />
           <Route path="/:list" element={<ProductList />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
