@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import variables from "../../styles/variables";
@@ -6,19 +7,17 @@ import theme from "../../styles/theme";
 import LoginModal from "../Modal/LoginModal";
 import { LoginContext } from "../../pages/context/LoginContext";
 import SearchModal from "../Modal/SearchModal";
+import API from "../../config";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [trySearch, setTrySearch] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [searchData, setSearchData] = useState([]);
-  const {
-    isLoginModalOpen,
-    setIsLoginModalOpen,
-    switchAnimation,
-    setSwitchAnimation,
-    navListName,
-  } = useContext(LoginContext);
+  const { setIsLoginModalOpen, setSwitchAnimation, navListName } =
+    useContext(LoginContext);
+
+  const navigate = useNavigate();
 
   const searchBtnClicked = () => {
     setTrySearch(true);
@@ -68,7 +67,7 @@ const Nav = () => {
   );
 
   const searchFetch = value => {
-    fetch(`http://10.58.52.63:3000/product?search=${value}`)
+    fetch(`${API.list}?search=${value}`)
       .then(res => res.json())
       .then(data => setSearchData(data.productInfo));
   };
@@ -95,7 +94,11 @@ const Nav = () => {
             />
           ) : (
             <>
-              <S.NavContentItem>
+              <S.NavContentItem
+                onClick={() => {
+                  navigate(`${navListName ? "/nearby" : "/1"}`);
+                }}
+              >
                 {navListName ? "내주변" : "지역별"}
               </S.NavContentItem>
               <S.NavContentItem>예약내역</S.NavContentItem>

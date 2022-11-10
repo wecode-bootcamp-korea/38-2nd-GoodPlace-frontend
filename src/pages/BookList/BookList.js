@@ -4,6 +4,7 @@ import BookListHeader from "./BookListHeader";
 import variables from "../../styles/variables";
 import theme from "../../styles/theme";
 import { useNavigate } from "react-router-dom";
+import API from "../../config";
 
 const BookList = () => {
   const [bookData, setbookData] = useState([]);
@@ -12,7 +13,7 @@ const BookList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://10.58.52.93:3000/order/list`, {
+    fetch(`${API.order}/list`, {
       headers: {
         authorization: localStorage.getItem("token"),
       },

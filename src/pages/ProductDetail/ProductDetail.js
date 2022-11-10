@@ -7,6 +7,7 @@ import variables from "../../styles/variables";
 import MenuTab from "./MenuTab/MenuTab";
 import { addDays } from "date-fns";
 import { useParams } from "react-router-dom";
+import API from "../../config";
 
 const pastMonth = new Date();
 
@@ -27,9 +28,7 @@ const ProductDetail = () => {
   const checkOut = date?.to?.toISOString().split("T")[0] || checkIn;
 
   useEffect(() => {
-    fetch(
-      `http://10.58.52.64:3000/product/${params.id}?checkIn=${checkIn}&checkOut=${checkOut}`
-    )
+    fetch(`${API.list}/${params.id}?checkIn=${checkIn}&checkOut=${checkOut}`)
       .then(res => res.json())
 
       .then(data =>

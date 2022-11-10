@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useLocation, useNavigate, searchParams } from "react-router-dom";
+import API from "../../config";
 import { LoginContext } from "../context/LoginContext";
 
 const KakaoLogin = () => {
@@ -9,7 +10,7 @@ const KakaoLogin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.52.165:3000/user/kakao/signin?code=${KAKAO_CODE}`)
+    fetch(`${API.user}/kakao/signin?code=${KAKAO_CODE}`)
       .then(res => res.json())
       .then(res => {
         if (typeof res.data === "object") {
