@@ -1,8 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import variables from "../../../styles/variables";
 
-const ProductCard = ({ product, isNearBy }) => {
+const ProductCard = ({ product, isNearBy, checkIn, checkOut }) => {
   const {
     name,
     time_price,
@@ -20,6 +21,8 @@ const ProductCard = ({ product, isNearBy }) => {
       return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
     }
   };
+
+  const navigate = useNavigate();
 
   const address = product !== undefined ? product.address.split(" ") : null;
 
@@ -43,7 +46,13 @@ const ProductCard = ({ product, isNearBy }) => {
   };
 
   return (
-    <S.ProductCard>
+    <S.ProductCard
+      onClick={() => {
+        navigate(
+          `/detail/${product.id}?checkIn=${checkIn}&checkOut=${checkOut}`
+        );
+      }}
+    >
       <S.ImgWrap imgurl={thumbnail_url} />
       <S.ContentWrap>
         <S.Information>

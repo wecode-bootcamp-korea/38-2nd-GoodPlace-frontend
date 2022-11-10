@@ -104,6 +104,8 @@ const ProductList = () => {
             defaultLocation={defaultLocation}
             setPagination={setPagination}
             currentLocation={currentLocation}
+            checkIn={checkIn}
+            checkOut={checkOut}
           />
         </S.BodyContainer>
       </S.Body>
