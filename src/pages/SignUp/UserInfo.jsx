@@ -5,6 +5,7 @@ import variables from "../../styles/variables";
 import theme from "../../styles/theme";
 import NICKNAMES from "./NICKNAMES";
 import { LoginContext } from "../context/LoginContext";
+import API from "../../config";
 
 const UserInfo = () => {
   const [nickName, setNickName] = useState(NICKNAMES[0]);
@@ -17,7 +18,7 @@ const UserInfo = () => {
   const validation = nickName.length > 0 && phoneNumber.length > 10;
 
   const signUp = () => {
-    fetch("http://10.58.52.125:3000/user/kakao/signup", {
+    fetch(`${API.user}/kakao/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({

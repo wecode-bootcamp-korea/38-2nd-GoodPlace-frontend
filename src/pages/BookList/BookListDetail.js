@@ -5,6 +5,7 @@ import BookListHeader from "./BookListHeader";
 import variables from "../../styles/variables";
 import theme from "../../styles/theme";
 import { FaPhoneAlt } from "react-icons/fa";
+import API from "../../config";
 
 const BookListDetail = () => {
   const [bookDetailData, setbookDetailData] = useState({});
@@ -12,7 +13,7 @@ const BookListDetail = () => {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://10.58.52.93:3000/order/${params.id}`, {
+    fetch(`${API.order}/${params.id}`, {
       headers: {
         "Content-Type": "application/json",
         authorization: localStorage.getItem("token"),
@@ -22,7 +23,7 @@ const BookListDetail = () => {
       .then(data => setbookDetailData(data.orderByUserId[0]));
   }, []);
   const cancel = () => {
-    fetch(`http://10.58.52.93:3000/order`, {
+    fetch(`${API.order}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

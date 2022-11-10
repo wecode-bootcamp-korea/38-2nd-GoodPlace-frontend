@@ -6,6 +6,7 @@ import theme from "../../styles/theme";
 import LoginModal from "../Modal/LoginModal";
 import { LoginContext } from "../../pages/context/LoginContext";
 import SearchModal from "../Modal/SearchModal";
+import API from "../../config";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,7 +69,7 @@ const Nav = () => {
   );
 
   const searchFetch = value => {
-    fetch(`http://10.58.52.63:3000/product?search=${value}`)
+    fetch(`${API.list}?search=${value}`)
       .then(res => res.json())
       .then(data => setSearchData(data.productInfo));
   };

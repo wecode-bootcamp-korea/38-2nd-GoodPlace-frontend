@@ -4,6 +4,7 @@ import styled from "styled-components";
 import variables from "../../../../styles/variables";
 import theme from "../../../../styles/theme";
 import RoomSwiper from "./RoomSwiper";
+import API from "../../../../config";
 
 const RoomItem = props => {
   const {
@@ -27,9 +28,7 @@ const RoomItem = props => {
   };
 
   const hoverFetch = roomId => {
-    fetch(
-      `http://10.58.52.64:3000/product/roomimage?productId=${params.id}&roomId=${roomId}`
-    )
+    fetch(`${API.list}/roomimage?productId=${params.id}&roomId=${roomId}`)
       .then(res => res.json())
       .then(({ roomImage }) => setRoomImages(roomImage));
   };
