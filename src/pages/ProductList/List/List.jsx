@@ -13,6 +13,8 @@ const List = ({
   setSortBy,
   setPagination,
   currentLocation,
+  checkIn,
+  checkOut,
 }) => {
   const [isMapOpen, setIsMapOpen] = useState(false);
 
@@ -103,6 +105,8 @@ const List = ({
                   isNearBy={isNearBy}
                   product={product}
                   key={product.id}
+                  checkIn={checkIn}
+                  checkOut={checkOut}
                 />
               )
             );
@@ -116,6 +120,8 @@ const List = ({
                   isNearBy={isNearBy}
                   product={product}
                   key={product.id}
+                  checkIn={checkIn}
+                  checkOut={checkOut}
                 />
               )
             );

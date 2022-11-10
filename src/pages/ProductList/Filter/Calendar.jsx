@@ -4,6 +4,7 @@ import Modal from "../../../components/Modal/Modal";
 import "react-day-picker/dist/style.css";
 import styled from "styled-components";
 import { subDays } from "date-fns";
+import variables from "../../../styles/variables";
 
 const Calendar = ({
   pastMonth,
@@ -32,11 +33,11 @@ const Calendar = ({
   }, []);
 
   const selectDate = () => {
-    if (range !== undefined && range !== null) {
+    if (!range) {
+      setIsModalOpen(true);
+    } else {
       setDate(range);
       setIsCalendarOpen(false);
-    } else {
-      setIsModalOpen(true);
     }
   };
 
@@ -59,6 +60,7 @@ const Calendar = ({
 
 const S = {
   CalendarContainer: styled.div`
+    ${variables.flex("center", "center", "column")};
     position: absolute;
     top: 25px;
     background-color: white;
