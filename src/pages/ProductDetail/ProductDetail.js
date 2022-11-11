@@ -23,7 +23,6 @@ const ProductDetail = () => {
 
   const params = useParams();
 
-  console.log(params.id);
   const checkIn = date?.from?.toISOString().split("T")[0];
   const checkOut = date?.to?.toISOString().split("T")[0] || checkIn;
 
@@ -52,47 +51,42 @@ const ProductDetail = () => {
     latitude,
   } = productData;
 
-  console.log(avg_rating);
   return (
     <>
-      {
-        <>
-          <S.Headers></S.Headers>
-          <S.ContentWrap>
-            <S.Content>
-              <S.Top>
-                <S.Left>
-                  <Carousel productImages={product_images} />
-                </S.Left>
-                <S.Right>
-                  <Info
-                    id={id}
-                    name={name}
-                    adress={address}
-                    avgRating={avg_rating}
-                    countRating={count_rating}
-                    description={description}
-                  />
-                </S.Right>
-              </S.Top>
-            </S.Content>
-            <MenuTab
-              productName={name}
-              productId={id}
-              range={range}
-              setRange={setRange}
-              setDate={setDate}
-              defaultSelected={defaultSelected}
-              thumbnailUrl={thumbnail_url}
-              starRate={avg_rating}
-              checkIn={checkIn}
-              checkOut={checkOut}
-              longitude={longitude}
-              latitude={latitude}
-            />
-          </S.ContentWrap>
-        </>
-      }
+      <S.Headers />
+      <S.ContentWrap>
+        <S.Content>
+          <S.Top>
+            <S.Left>
+              <Carousel productImages={product_images} />
+            </S.Left>
+            <S.Right>
+              <Info
+                id={id}
+                name={name}
+                adress={address}
+                avgRating={avg_rating}
+                countRating={count_rating}
+                description={description}
+              />
+            </S.Right>
+          </S.Top>
+        </S.Content>
+        <MenuTab
+          productName={name}
+          productId={id}
+          range={range}
+          setRange={setRange}
+          setDate={setDate}
+          defaultSelected={defaultSelected}
+          thumbnailUrl={thumbnail_url}
+          starRate={avg_rating}
+          checkIn={checkIn}
+          checkOut={checkOut}
+          longitude={longitude}
+          latitude={latitude}
+        />
+      </S.ContentWrap>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BookListHeader from "./BookListHeader";
 import variables from "../../styles/variables";
@@ -11,6 +11,7 @@ const BookListDetail = () => {
   const [bookDetailData, setbookDetailData] = useState({});
 
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${API.order}/${params.id}`, {
@@ -22,6 +23,14 @@ const BookListDetail = () => {
       .then(response => response.json())
       .then(data => setbookDetailData(data.orderByUserId[0]));
   }, []);
+
+  const successDelete = message => {
+    if (message === "DELETE SUCCESS") {
+      alert("예약이 취소되었습니다.");
+      navigate("/booklist");
+    }
+  };
+
   const cancel = () => {
     fetch(`${API.order}`, {
       method: "PATCH",
@@ -33,7 +42,9 @@ const BookListDetail = () => {
         roomId: bookDetailData.roomId,
         orderId: bookDetailData.orderId,
       }),
-    });
+    })
+      .then(res => res.json())
+      .then(({ message }) => successDelete(message));
   };
 
   return (

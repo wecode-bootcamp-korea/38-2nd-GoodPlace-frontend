@@ -1,10 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+
+import { Navigate } from "react-router-dom";
 
 const Main = () => {
-  return <MainWrap>메인페이지 입니다.</MainWrap>;
+  return (
+    <>
+      {" "}
+      <Navigate to="/nearby" />
+    </>
+  );
 };
-const MainWrap = styled.div`
-  height: 1000px;
-`;
+
 export default Main;

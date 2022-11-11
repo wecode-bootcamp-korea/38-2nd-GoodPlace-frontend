@@ -20,7 +20,7 @@ const MenuTab = props => {
     latitude,
   } = props;
   const [selectedMenu, setSelectedMenu] = useState("book");
-  console.log(selectedMenu);
+
   const selectMenu = menuName => () => {
     setSelectedMenu(menuName);
   };

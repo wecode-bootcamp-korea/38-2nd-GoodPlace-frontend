@@ -22,11 +22,13 @@ const UserInfo = () => {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
-        kakaoId: kakaoResponse.id,
-        email: kakaoResponse.email,
+        // kakaoId: kakaoResponse.id,
+        // email: kakaoResponse.email,
+        kakaoId: "2510471894",
+        email: "",
         nickName: nickName,
         phoneNumber: phoneNumber,
-        userType: selectType,
+        userType: "user",
       }),
     })
       .then(res => res.json())

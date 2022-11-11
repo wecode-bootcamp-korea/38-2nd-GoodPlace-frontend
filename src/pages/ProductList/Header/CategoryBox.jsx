@@ -15,7 +15,7 @@ const CategoryBox = ({ list, closeCategory, categoryAnimation }) => {
   const navigate = useNavigate();
 
   const moveToCategory = id => {
-    navigate(`/list/${id}`);
+    navigate(`/${id}`);
   };
 
   return (

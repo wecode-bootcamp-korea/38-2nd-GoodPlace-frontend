@@ -48,7 +48,11 @@ const RoomItem = props => {
       <S.Info>
         <S.Time>
           <S.Title>대실</S.Title>
-          <S.Price>{timePrice !== null ? timePrice : "가격 정보 없음"}</S.Price>
+          <S.Price>
+            {timePrice !== null
+              ? parseInt(timePrice).toLocaleString() + "원"
+              : "가격 정보 없음"}
+          </S.Price>
           <dl>
             <dt>이용시간</dt>
             <dd>4시간</dd>
@@ -63,13 +67,18 @@ const RoomItem = props => {
                 `/book?isStay=0&productId=${params.id}&roomId=${roomId}&checkIn=${checkIn}&checkOut=${checkOut}&roomName=${roomName}&productName=${productName}&dateDiff=${dateDiff}&price=${timePrice}`
               )
             }
+            disabled={!timePrice}
           >
-            숙소문의
+            {!timePrice ? "숙소문의" : "예약하기"}
           </S.Book>
         </S.Time>
         <S.Stay>
           <S.Title>숙박</S.Title>
-          <S.Price>{stayPrice !== null ? stayPrice : "가격 정보 없음"}</S.Price>
+          <S.Price>
+            {stayPrice !== null
+              ? parseInt(stayPrice).toLocaleString() + "원"
+              : "가격 정보 없음"}
+          </S.Price>
           <dl>
             <dt>입실시간</dt>
             <dd>15:00부터</dd>
@@ -84,8 +93,9 @@ const RoomItem = props => {
                 `/book?isStay=1&productId=${params.id}&roomId=${roomId}&checkIn=${checkIn}&checkOut=${checkOut}&roomName=${roomName}&productName=${productName}&dateDiff=${dateDiff}&price=${stayPrice}`
               )
             }
+            disabled={!stayPrice}
           >
-            숙소문의
+            {!stayPrice ? "숙소문의" : "예약하기"}
           </S.Book>
         </S.Stay>
       </S.Info>
@@ -192,6 +202,10 @@ const S = {
     color: #fff;
     text-align: center;
     background-color: ${theme.brandColor};
+    &:disabled {
+      background-color: lightGrey;
+      cursor: not-allowed;
+    }
   `,
   CantBook: styled.button`
     display: block;

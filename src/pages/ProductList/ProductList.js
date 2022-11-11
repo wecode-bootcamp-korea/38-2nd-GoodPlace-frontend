@@ -29,8 +29,9 @@ const ProductList = () => {
   const [pagination, setPagination] = useState(1);
   const [productList, setProductList] = useState([]);
   const [date, setDate] = useState(defaultSelected);
+  const [currentPage, setCurrentPage] = useState(list);
 
-  const { setNavListName } = useContext(LoginContext);
+  const { setNavListName, navListName } = useContext(LoginContext);
 
   setNavListName(!isNearBy);
 
@@ -56,6 +57,14 @@ const ProductList = () => {
   }, []);
 
   useEffect(() => {
+    isNearBy ? setSortBy("ascDistance") : setSortBy("popularity");
+  }, [isNearBy]);
+
+  useEffect(() => {
+    setCurrentPage(list);
+  }, [list]);
+
+  useEffect(() => {
     (async () => {
       const response = await fetch(
         isNearBy
@@ -73,7 +82,15 @@ const ProductList = () => {
       const { productInfo } = await response.json();
       setProductList(productInfo);
     })();
-  }, [sortBy, filter, currentLocation, distanceRange, pagination, date]);
+  }, [
+    sortBy,
+    filter,
+    currentLocation,
+    distanceRange,
+    pagination,
+    date,
+    currentPage,
+  ]);
 
   return (
     <>

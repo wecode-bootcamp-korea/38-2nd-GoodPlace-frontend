@@ -43,7 +43,7 @@ const ReviewForm = ({ params }) => {
     const formData = new FormData();
 
     formData.append("image", files[0].object);
-    formData.append("roomId", params.id);
+    formData.append("roomId", "3");
     formData.append("rating", reviewStarRate);
     formData.append("content", reviewContent);
 
@@ -51,6 +51,7 @@ const ReviewForm = ({ params }) => {
       const response = await fetch(API.review, {
         method: "POST",
         headers: {
+          "Content-Type": "application/json;charset=utf-8",
           Authorization: localStorage.getItem("token"),
         },
         body: formData,

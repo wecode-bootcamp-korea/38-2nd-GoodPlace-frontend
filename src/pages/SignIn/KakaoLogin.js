@@ -15,9 +15,10 @@ const KakaoLogin = () => {
       .then(res => {
         if (typeof res.data === "object") {
           setKakaoResponse(res.data);
-          alert("가입정보가 유효하지 않아, 회원가입 페이지로 이동합니다.");
           navigate("/signup");
+          alert("가입정보가 유효하지 않아, 회원가입 페이지로 이동합니다.");
         } else localStorage.setItem("token", res.data);
+        navigate("/");
       });
   }, []);
 

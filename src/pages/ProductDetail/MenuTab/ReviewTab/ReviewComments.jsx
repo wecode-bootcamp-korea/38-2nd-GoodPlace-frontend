@@ -60,7 +60,7 @@ const ReviewComments = ({ review }) => {
             <S.Star>{review.rating}</S.Star>
             <span>{ratingMessage(review.rating)}</span>
           </S.ScoreWrap>
-          <S.Name>{`${review.roomName} | ${nickName}`}</S.Name>
+          <S.Name>{nickName}</S.Name>
           <S.UserTxt>{review.content}</S.UserTxt>
         </div>
         <S.ReviewImageWrap onClick={openBigImage}>

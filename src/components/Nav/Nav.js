@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import variables from "../../styles/variables";
@@ -20,6 +21,7 @@ const Nav = () => {
     setSwitchAnimation,
     navListName,
   } = useContext(LoginContext);
+  const navigate = useNavigate();
 
   const searchBtnClicked = () => {
     setTrySearch(true);
@@ -39,8 +41,12 @@ const Nav = () => {
   };
 
   const inputChange = event => {
-    fetchDelay(event.target.value);
-    setInputValue(event.target.value);
+    if (event.target.value.length === 0) {
+      setSearchData([]);
+    } else {
+      setInputValue(event.target.value);
+      fetchDelay(event.target.value);
+    }
   };
 
   useEffect(() => {
@@ -92,14 +98,20 @@ const Nav = () => {
               onBlur={closeSearch}
               isScrolled={isScrolled}
               onChange={inputChange}
-              value={inputValue}
+              // value={inputValue}
             />
           ) : (
             <>
-              <S.NavContentItem>
+              <S.NavContentItem
+                onClick={() => {
+                  navListName ? navigate("/nearby") : navigate("/1");
+                }}
+              >
                 {navListName ? "내주변" : "지역별"}
               </S.NavContentItem>
-              <S.NavContentItem>예약내역</S.NavContentItem>
+              <S.NavContentItem onClick={() => navigate("/booklist")}>
+                예약내역
+              </S.NavContentItem>
               <S.NavContentItem>더보기</S.NavContentItem>
               <S.NavContentItem onMouseDown={loginModalOpen}>
                 로그인

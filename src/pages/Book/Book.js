@@ -66,8 +66,7 @@ const Book = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
-          Authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjF9.06nwUbSJ1kqahgDAsp8mL7FTpQdcq_y0DW3ZplelKBM",
+          Authorization: localStorage.getItem("token"),
         },
         body: JSON.stringify({
           productId: productId,
@@ -84,8 +83,7 @@ const Book = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
-          Authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjF9.06nwUbSJ1kqahgDAsp8mL7FTpQdcq_y0DW3ZplelKBM",
+          Authorization: localStorage.getItem("token"),
         },
         body: JSON.stringify({
           productId: productId,
@@ -114,7 +112,7 @@ const Book = () => {
 
       {isModalOpen && (
         <Modal
-          content={"payment"}
+          content="payment"
           confirm={payment}
           setIsModalOpen={setIsModalOpen}
         />

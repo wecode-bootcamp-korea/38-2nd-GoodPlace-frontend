@@ -11,6 +11,7 @@ const BookTab = ({
   defaultSelected,
   checkIn,
   checkOut,
+  productName,
 }) => {
   const [isHidden, setIsHidden] = useState(true);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -56,7 +57,12 @@ const BookTab = ({
           />
         )}
       </S.Calendar>
-      <RoomList checkIn={checkIn} checkOut={checkOut} dateDiff={dateDiff} />
+      <RoomList
+        checkIn={checkIn}
+        checkOut={checkOut}
+        dateDiff={dateDiff}
+        productName={productName}
+      />
     </>
   );
 };

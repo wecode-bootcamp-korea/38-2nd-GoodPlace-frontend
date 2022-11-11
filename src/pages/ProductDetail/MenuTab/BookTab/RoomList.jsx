@@ -39,6 +39,7 @@ const RoomList = props => {
               checkOut={checkOut}
               productName={productName}
               dateDiff={dateDiff}
+              key={roomId}
             />
           );
         }

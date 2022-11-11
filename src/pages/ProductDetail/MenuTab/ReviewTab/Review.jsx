@@ -26,14 +26,12 @@ const Review = ({ starRate }) => {
 
   useEffect(() => {
     const getReviews = async () => {
-      const response = await fetch(`${API.review}/${params.id}`);
+      const response = await fetch(`${API.review}/3`);
       const { reviewsOfRooms } = await response.json();
       setReviews(reviewsOfRooms);
     };
     getReviews();
   }, []);
-
-  console.log(API);
 
   return (
     <S.Review>
