@@ -1,4 +1,4 @@
-<div align="center"><img width="419" alt="어떤데  배너" src="https://user-images.githubusercontent.com/101626477/202841036-934d149d-57e0-42d7-af71-670e72a32fb8.png"></div>
+<div align="center"><img width="419" alt="어떤데  배너" src="https://user-images.githubusercontent.com/101626477/202843748-5c2eb570-b9af-4137-a58e-d404919ab74b.png"></div>
 
 # 🏨 Project
 국내 숙박/휴가/레저/여행을 한 번에 예약할 수 있는 플랫폼 <b>여기어때</b>를 모티브로 한 숙박 중개 플랫폼
