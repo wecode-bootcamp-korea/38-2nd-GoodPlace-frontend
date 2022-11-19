@@ -51,7 +51,6 @@ const ReviewForm = ({ params }) => {
       const response = await fetch(API.review, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json;charset=utf-8",
           Authorization: localStorage.getItem("token"),
         },
         body: formData,
@@ -134,7 +133,7 @@ const ReviewForm = ({ params }) => {
           max="10"
           value={reviewStarRate}
           onChange={rate}
-        ></S.StarRating>
+        />
       </S.StarRatingWrap>
       <S.UploadWrap>
         <S.ReviewArea
@@ -154,7 +153,7 @@ const ReviewForm = ({ params }) => {
               type="file"
               onChange={onChangeFiles}
               multiple={false}
-            ></S.ImageInput>
+            />
             <S.ImageUploadLabel htmlFor="fileUpload">
               <div>
                 <p>
@@ -163,7 +162,7 @@ const ReviewForm = ({ params }) => {
                     : "업로드 완료"}
                 </p>
               </div>
-              {isDragging && <S.DragedFile></S.DragedFile>}
+              {isDragging && <S.DragedFile />}
             </S.ImageUploadLabel>
           </S.ImageUploadForm>
           <S.UploadButton type="button" onClick={uploadReview}>
