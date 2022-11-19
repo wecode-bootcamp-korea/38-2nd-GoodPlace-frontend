@@ -4,6 +4,7 @@ const API = {
   list: `${BASE_URL}/product`,
   review: `${BASE_URL}/review`,
   order: `${BASE_URL}/order`,
+  detail: `${BASE_URL}/detail`,
   user: `${BASE_URL}/user`,
 };
 
