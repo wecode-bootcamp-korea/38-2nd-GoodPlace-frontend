@@ -41,7 +41,7 @@
 ||시연영상|담당 개발자|설명|
 | :--: | :--: | :--: | :--: |
 | Nav SearchModal |![goodplace-Nav:Search](https://user-images.githubusercontent.com/108847541/202904388-750034f2-8472-462c-a696-aa1c90c41673.gif)| FE<br>`최현`<br>BE<br>`정재욱` | - debounce를 이용한 불필요한 통신을 줄인 검색기능 <br>- 스크롤 이벤트를 감지하여 스크롤에 맞춰 색상을 Styled-Components에서 props값으로 관리 |
-| Footer |![goodplace-footer](https://user-images.githubusercontent.com/108847541/202905287-300ed995-cc33-4d1e-a1d4-d27f29e13316.gif)| `모유진` | - Styled-Components와 시멘틱 태그를 이용한 Footer제작 |
+| Footer |![goodplace-footer](https://user-images.githubusercontent.com/108847541/202905287-300ed995-cc33-4d1e-a1d4-d27f29e13316.gif)| FE<br>`모유진` | - Styled-Components와 시멘틱 태그를 이용한 Footer제작 |
 | 카카오API 로그인 및 회원가입 | ![goodplace-signin:signup](https://user-images.githubusercontent.com/108847541/202905404-439f68e2-6e45-423e-bf58-f1394d067de3.gif)| FE<br>`최현`<br>BE<br>`정재욱` | - 카카오 API를 이용한 로그인 및 회원가입 기능<br> - 카카오API를 통해 받아온 정보와 추가로 입력한 정보를 이용하여 회원가입 |
 | 리스트 페이지<br>Sort | ![goodplace-filter:sort](https://user-images.githubusercontent.com/108847541/202957655-c8dc3e29-aa1c-423b-be47-c1e01e42c47e.gif) | FE<br>`김 솔`<br>BE<br>`정해만` | - GET요청을 쿼리에 조건을 담아서 요청하여 Sort된 데이터를 받아오는 형식 |
 | 리스트 페이지<br>AddressFilter |![goodplace-addressFilter](https://user-images.githubusercontent.com/108847541/202960192-c9ddd7c0-ff28-472b-810a-9833b7db2715.gif) | FE<br>`김 솔`<br>BE<br>`정해만` | - GET요청을 쿼리에 조건을 담아서 요청하여 Filter된 데이터를 받아오는 형식 |
@@ -52,7 +52,6 @@
 | 디테일 페이지 <br> 리뷰 작성 | ![goodplace-detail:review](https://user-images.githubusercontent.com/108847541/202965063-dc8ab18c-ab9f-40bf-857a-23ed8c0c3cc1.gif) | FE<br>`김 솔`<br>`최 현`<br>BE<br>`이현태` | - FORMDATA를 이용한 사진과 코멘트 리뷰 기능 구현
 | 예약 페이지 <br> 대실 예약 | ![goodplace-timeOrder](https://user-images.githubusercontent.com/108847541/202963771-7496a939-c4f6-4565-9f4c-84fa6d57debd.gif) | FE<br>`김 솔`<br>`최 현`<br>BE<br>`이현태` | - 플랫폼 규정에 의한 최대 이용시간 4시간까지 설정되게끔 구현 |
 | 예약 페이지 <br> 숙박 예약 | ![goodplace-stayOrder](https://user-images.githubusercontent.com/108847541/202964538-a8fd212f-946d-4f0f-90dd-9145d38d0ed5.gif) | FE<br>`김 솔`<br>`최 현`<br>BE<br>`이현태` | - |
-| 예약 내역 페이지 | ![goodplace-orderList](https://user-images.githubusercontent.com/108847541/202964694-ea441049-fbf0-4301-89cb-0d02a6c274dd.gif) | FE<br>`모유진`<br>BE<br>`이현태` | - |
-| 
+| 예약 내역 페이지<br> 예약 내역 조회<br>예약 내역 삭제<br>예약 내역 상세 | ![goodplace-orderList](https://user-images.githubusercontent.com/108847541/202964694-ea441049-fbf0-4301-89cb-0d02a6c274dd.gif) | FE<br>`모유진`<br>BE<br>`이현태` | - |
 
 
